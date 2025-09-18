@@ -16,7 +16,7 @@ export const LoginView = () => {
 
   return (
     <div
-      className={cn("size-full flex absolute top-0 left-0", {
+      className={cn("size-full flex absolute top-0 left-0 z-20", {
         "pointer-events-none": isLoggedIn,
       })}
     >
