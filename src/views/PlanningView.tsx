@@ -1,21 +1,54 @@
 import { Card } from "../components/Card";
 import pokerCore from "../assets/poker-core.svg";
-import { cardValuesList } from "../constants";
+import { cardValuesList, type CardValue } from "../constants";
+import { useState } from "react";
+import { PickedCard } from "../components/PickedCard";
 
 export const PlanningView = () => {
+  const [pickedCard, setPickedCard] = useState<CardValue | null>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const handlePickCard = (value: CardValue) => {
+    if (isRevealed) {
+      return;
+    }
+
+    setPickedCard(value);
+  };
+
   return (
     <div className="relative flex flex-col size-full bg-[url('/deck.svg')] bg-no-repeat bg-cover">
       <div className="relative flex-1 z-10">
         <img
           src={pokerCore}
           alt="Poker Deck Core"
-          className="size-[50%] absolute left-1/2 top-24 -translate-x-1/2 opacity-50"
+          className="size-[50%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50"
         />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <PickedCard
+            value={pickedCard}
+            isRevealed={isRevealed}
+            setIsRevealed={setIsRevealed}
+          />
+        </div>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(80px,_max-content))] gap-4 justify-center px-12 pt-2 pb-8">
-        {cardValuesList.map((value) => (
-          <Card key={value} value={value} />
-        ))}
+      <div className="flex flex-col items-center gap-4">
+        <h3 className="text-xl font-medium text-neutral-50">
+          {!pickedCard && "Please pick your card 👇🏼"}
+          {pickedCard && !isRevealed && "Click on the card to reveal it"}
+          {pickedCard && isRevealed && `You picked: ${pickedCard}`}
+        </h3>
+
+        <div className="w-full grid grid-cols-[repeat(auto-fit,_minmax(80px,_max-content))] gap-4 justify-center px-12 pt-2 pb-8">
+          {cardValuesList.map((value) => (
+            <Card
+              key={value}
+              value={value}
+              isSelected={pickedCard === value}
+              handlePickCard={handlePickCard}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

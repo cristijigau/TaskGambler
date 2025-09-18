@@ -16,8 +16,8 @@ export default function ConfirmationDialog({
     <Dialog
       open={open}
       as="div"
-      className="relative z-10 focus:outline-none"
-      onClose={close}
+      className="relative z-40 focus:outline-none"
+      onClose={onClose}
     >
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
