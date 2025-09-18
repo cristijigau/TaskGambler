@@ -49,7 +49,7 @@ export const LoginForm = ({ setIsLoggedIn }: Props) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 size-full justify-center">
+    <div className="flex flex-col gap-4 size-full justify-center dark:bg-amber-500">
       <h3 className="text-xl font-medium text-neutral-800">
         Nice to see you {savedUsername && ` again, ${savedUsername}!`}
       </h3>
