@@ -37,10 +37,10 @@ export const Button = ({
       "flex items-center justify-center transition-transform active:scale-[0.98]",
       {
         [primaryButtonClasses]: variant === "primary",
+        [secondaryButtonClasses]: variant === "secondary",
         [linkButtonClasses]: variant === "link",
         [defaultSizeClasses]: size === "default",
         [smallSizeClasses]: size === "small",
-        [secondaryButtonClasses]: variant === "secondary",
       }
     )}
   >
