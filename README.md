@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# Planning Poker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Planning Poker application built with React, TypeScript, and Vite. This app helps teams estimate story points collaboratively during sprint planning sessions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Card Selection** - Choose from Fibonacci sequence cards (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ?, ☕️)
+- **Dark/Light Mode** - Toggle between themes with a draggable theme switcher
+- **User Management** - Save your name locally for recognition
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Make sure you have the following installed on your machine:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd planning-poker
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+### Running the App
+
+1. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+2. **Open your browser**
+
+   The app will be available at `http://localhost:5173`
+
+3. **Start planning!**
+   - Enter your name in the login form
+   - Select cards from the deck
+   - Use the reveal feature to show picked card
+
+## Tech Stack
+
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **Headless UI** - Accessible UI components
+
+## Project Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+src/
+├── components/          # Reusable UI components
+│   ├── Card.tsx        # Individual poker card
+│   ├── Button.tsx      # Button component
+│   └── ThemeToggle.tsx # Draggable theme switcher
+├── views/              # Page-level components
+│   ├── LoginView.tsx   # User login/name entry
+│   └── PlanningView.tsx # Main poker planning interface
+├── contexts/           # React contexts
+│   └── ThemeContext.tsx # Theme management
+├── hooks/              # Custom React hooks
+├── utils/              # Utility functions
+└── assets/            # Images and SVG files
 ```
