@@ -9,6 +9,8 @@ export const AppLogo = () => (
         className="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
     </div>
-    <h4 className="text-lg font-medium text-neutral-800">TaskGambler</h4>
+    <h4 className="text-lg font-medium text-neutral-800 dark:text-neutral-100">
+      TaskGambler
+    </h4>
   </div>
 );

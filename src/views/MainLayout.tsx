@@ -1,16 +1,20 @@
 import { LoginView } from "./LoginView";
 import { PlanningView } from "./PlanningView";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { ThemeProvider } from "../contexts/ThemeProvider";
+import { useThemeContext } from "../hooks/useThemeContext";
+import cn from "classnames";
 
 export const MainLayout = () => {
+  const { isDark } = useThemeContext();
   return (
-    <ThemeProvider>
-      <div className="relative size-full dark">
-        <LoginView />
-        <PlanningView />
-        <ThemeToggle />
-      </div>
-    </ThemeProvider>
+    <div
+      className={cn("relative size-full", {
+        dark: isDark,
+      })}
+    >
+      <LoginView />
+      <PlanningView />
+      <ThemeToggle />
+    </div>
   );
 };

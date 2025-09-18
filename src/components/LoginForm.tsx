@@ -49,15 +49,17 @@ export const LoginForm = ({ setIsLoggedIn }: Props) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 size-full justify-center dark:bg-amber-500">
-      <h3 className="text-xl font-medium text-neutral-800">
+    <div className="flex flex-col gap-4 size-full justify-center">
+      <h3 className="text-xl font-medium text-neutral-800 dark:text-neutral-100">
         Nice to see you {savedUsername && ` again, ${savedUsername}!`}
       </h3>
       {!savedUsername && (
         <div className="w-full max-w-md">
           <Field>
-            <Label className="text-sm/6 text-neutral-800">Name</Label>
-            <Description className="text-sm/6 text-neutral-400 font-light">
+            <Label className="text-sm/6 text-neutral-800 dark:text-neutral-100">
+              Name
+            </Label>
+            <Description className="text-sm/6 text-neutral-400 font-light dark:text-neutral-100">
               Use your real name so people will recognize you.
             </Description>
             <Input

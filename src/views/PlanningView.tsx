@@ -5,10 +5,12 @@ import { useState } from "react";
 import { PickedCard } from "../components/PickedCard";
 import { Button } from "../components/Button";
 import cn from "classnames";
+import { useThemeContext } from "../hooks/useThemeContext";
 
 export const PlanningView = () => {
   const [pickedCard, setPickedCard] = useState<CardValue | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
+  const { isDark } = useThemeContext();
 
   const handlePickCard = (value: CardValue) => {
     if (isRevealed) {
@@ -24,7 +26,12 @@ export const PlanningView = () => {
   };
 
   return (
-    <div className="relative flex flex-col size-full bg-[url('/deck.svg')] bg-no-repeat bg-cover">
+    <div
+      className={cn("relative flex flex-col size-full bg-no-repeat bg-cover", {
+        "bg-[url('/deck.svg')]": !isDark,
+        "bg-[url('/deck-dark.svg')]": isDark,
+      })}
+    >
       <div className="relative flex-1 z-10">
         <img
           src={pokerCore}

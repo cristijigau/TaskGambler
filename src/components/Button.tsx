@@ -5,10 +5,10 @@ import type { PropsWithChildren } from "react";
 // Normally I would use tailwind variants (https://www.tailwind-variants.org/)
 // I'm avoiding it for now to keep the dependencies low
 const primaryButtonClasses = cn(
-  "font-semibold bg-gray-700 text-white data-focus:outline-white",
+  "font-semibold bg-gray-700 text-white data-focus:outline-white dark:bg-gray-500",
   "data-hover:bg-gray-600 data-open:bg-gray-700",
   "shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline",
-  "transition-bg duration-150 data-hover:cursor-pointer"
+  "transition-colors duration-300 data-hover:cursor-pointer"
 );
 const secondaryButtonClasses = cn(
   "data-hover:cursor-pointer font-semibold text-white"
