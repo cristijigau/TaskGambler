@@ -2,6 +2,10 @@
 
 A modern Planning Poker application built with React, TypeScript, and Vite. This app helps teams estimate story points collaboratively during sprint planning sessions.
 
+## Demo
+
+https://github.com/user-attachments/assets/b098fc05-9a54-4f54-8e19-17171b8252ff
+
 ## Features
 
 - **Interactive Card Selection** - Choose from Fibonacci sequence cards (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ?, ☕️)
