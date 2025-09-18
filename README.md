@@ -1,4 +1,6 @@
-# Planning Poker App (https://cristijigau.github.io/TaskGambler/)
+# Planning Poker App 
+
+Try it out at: https://cristijigau.github.io/TaskGambler/
 
 A modern Planning Poker application built with React, TypeScript, and Vite. This app helps teams estimate story points collaboratively during sprint planning sessions.
 
